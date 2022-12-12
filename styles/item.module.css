@@ -1,0 +1,8 @@
+.item-confirm{
+    opacity: .4;
+}
+
+.itemli{
+    list-style: none;
+    pointer-events: none;
+}
