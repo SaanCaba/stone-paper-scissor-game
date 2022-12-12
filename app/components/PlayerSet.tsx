@@ -39,7 +39,7 @@ function PlayerSet({items, setItems} : any  ) {
             <div className='flex justify-center'>
             <span className='text-white text-xl'>Choose One!</span>
             </div>
-          <nav className='flex items-center h-full '>
+          <nav className='flex items-center h-full max-sm:flex-col'>
           {items.map((e : Items, i : number ) => {
             return (
               <Item key={i} element={e} i={i}  />

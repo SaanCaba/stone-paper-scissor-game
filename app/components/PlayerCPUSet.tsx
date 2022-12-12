@@ -14,6 +14,20 @@ import Swal, { SweetAlertCustomClass } from 'sweetalert2'
 
 
 function alert(conf : string, name? : string){
+    if(conf === 'wincpu'){
+       return Swal.fire({
+           title:'CPU Winner!',
+           text:'Keep trying!',
+           icon:'error'
+       })
+   }
+   if(conf === 'winp1'){
+    return Swal.fire({
+        title:`${name} wins!`,
+        text:'Keep trying!',
+        icon: 'success'
+    })
+   }
     if(conf === 'empate'){
         return Swal.fire({
             text:'EMPATE',
@@ -63,7 +77,16 @@ function PlayerCPUSet() {
         if(context.config.confirm === true){
             selectRandomItem()
         }
+        if(context.config.pointsCPU === 3){
+            (async() => await alert('wincpu'))()
+            return;
+        }
+        if(context.config.points1 === 3){
+            (async() => await alert('winp1', context.config.playerName))()
+            return;
+         }
         if(points === true){
+            
             if(context.config.player1Item === context.config.cpuItem.name){
               (async()  => await alert('empate'))()
                return setPoints(false)
@@ -99,11 +122,10 @@ function PlayerCPUSet() {
             context.setConfig({
                 ...context.config,
                 pointsCPU: context.config.pointsCPU + 1
-                
             })
             return setPoints(false)
         }
-    },[context.config.confirm])
+    },[context.config.confirm, context.config.pointsCPU, context.config.points1])
 
   return (
     <div>

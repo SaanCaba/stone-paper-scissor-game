@@ -12,7 +12,7 @@ export default function RootLayout({
     <html>
       <ConfigProvider>
       <body className='relative h-screen bg-[#fef08a]'>
-        <main>{children}</main>
+        <main className='overflow-hidden'>{children}</main>
         <footer className='flex justify-center'>
           <Footer />
       </footer>

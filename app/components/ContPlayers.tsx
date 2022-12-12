@@ -33,13 +33,13 @@ function ContPlayers() {
     ])
     
   return (
-    <div className='w-full'>
-      <div className='flex justify-center items-center h-full  w-full' >
-      <div className='relative w-full flex justify-center items-center h-4/5 bg-[#AA2B4A]  rounded' style={{marginLeft:'14px', marginRight:'6px'}}>
+    <div className='w-full max-sm:-mt-6 overflow-hidden  max-sm:mb-6'>
+      <div className='flex justify-center items-center h-full  w-full ' >
+      <div className='relative w-full flex justify-center items-center h-4/5 bg-[#AA2B4A] rounded mr-1 ml-2 max-sm:mr-0 max-sm:ml-1' >
           <Player1 items={items} setItems={setItems} />
       </div>
       <Results />
-      <div className='w-full flex justify-center items-center h-4/5 bg-[#071e26] rounded' style={{marginRight:'14px', marginLeft:'6px'}}>
+      <div className='w-full flex justify-center items-center h-4/5 bg-[#071e26] rounded mr-2 ml-1 max-sm:mr-1 max-sm:ml-0'>
       <Player2 />
       </div>
       </div>
