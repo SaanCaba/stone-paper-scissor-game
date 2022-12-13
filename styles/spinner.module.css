@@ -7,6 +7,15 @@
     animation: spin 1s ease infinite;
 }
 
+.spin{
+    border: 3px solid rgba(250, 250, 250, 0.484);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border-left-color: transparent ;
+    animation: spin 1s ease infinite;  
+}
+
 @keyframes spin{
     0%{
         transform: rotate(0deg);
@@ -25,4 +34,5 @@
         border-left-color: transparent ;
         animation: spin 1s ease infinite;
     }
+
 }

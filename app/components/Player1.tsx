@@ -26,13 +26,9 @@ export default function Player1({items, setItems}: Props){
   const context: ContextType = useContext(Contexts.AppContext)
 
   return(
-    <div className='' >
+    <div className='w-full h-full mb-4'>
+      <div className='h-full flex'>
       <PlayerSet items={items} setItems={setItems} />
-      <div className='flex justify-center items-center mt-5' >
-        <div className='flex flex-col'>
-        <Image src={userProfile} alt='user img' width={100} />
-        <span className='font-semibold'>Player: {context.config.playerName}</span>
-        </div>
       </div>
       </div>
   )

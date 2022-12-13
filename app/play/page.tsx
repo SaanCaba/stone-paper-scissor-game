@@ -3,7 +3,6 @@ import ContPlayers from '../components/ContPlayers'
 import Name from '../components/Name'
 import Player1 from '../components/Player1'
 import Player2 from '../components/PlayerCPU'
-import RealName from '../components/RealName'
 import styles from './play.module.css'
 
 

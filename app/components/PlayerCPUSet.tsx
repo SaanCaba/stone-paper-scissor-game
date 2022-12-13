@@ -17,32 +17,63 @@ function alert(conf : string, name? : string){
     if(conf === 'wincpu'){
        return Swal.fire({
            title:'CPU Winner!',
+           color:'white',
            text:'Keep trying!',
-           icon:'error'
+           imageUrl:'https://cdn-icons-png.flaticon.com/512/4712/4712109.png',
+           imageWidth: 200,
+           imageHeight: 200,
+           background: '#071e26',
+           cancelButtonColor:'red',
+           cancelButtonAriaLabel:'X',
+           showConfirmButton: false,
+           showCloseButton:true
        })
    }
    if(conf === 'winp1'){
     return Swal.fire({
         title:`${name} wins!`,
         text:'Keep trying!',
-        icon: 'success'
+        imageUrl:'https://www.freeiconspng.com/thumbs/spongebob-png/spongebob-happy-png-9.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        background:'#AA2B4A',
+        showConfirmButton: false,
+        color:'white',
+        cancelButtonColor:'red',
+        cancelButtonAriaLabel:'X',
+        showCloseButton:true
     })
    }
-    if(conf === 'empate'){
+    if(conf === 'tie'){
         return Swal.fire({
-            text:'EMPATE',
-            icon:'warning',
+            text:'Tie!',
+            background:'#e3be59',
+            imageUrl:'https://images.vexels.com/media/users/3/158040/isolated/preview/ceb5cf4a02d45fa49dc671e7d2014c32-icono-de-trazo-de-apreton-de-manos.png',
+            imageWidth: 200,
+            imageHeight: 200,
+            color:'black'
         })
     }
     if(conf === 'player1'){
         return Swal.fire({
             text:`Points for ${name}`,
-            icon:'success'
+            icon:'success',
+            color:'white',
+            imageUrl:'https://www.freeiconspng.com/thumbs/spongebob-png/spongebob-happy-png-9.png',
+            imageWidth: 200,
+            imageHeight: 200,
+            background:'#AA2B4A',
         })
     }
     return Swal.fire({
         text:'Points for CPU',
-        icon:'error'
+        icon:'error',
+        imageUrl:'https://cdn-icons-png.flaticon.com/512/4712/4712109.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        background: '#071e26',
+        color:'white',
+        footer:'The next round its yours!'
     })
     
 }
@@ -88,7 +119,7 @@ function PlayerCPUSet() {
         if(points === true){
             
             if(context.config.player1Item === context.config.cpuItem.name){
-              (async()  => await alert('empate'))()
+              (async()  => await alert('tie'))()
                return setPoints(false)
             }
             if(context.config.player1Item === 'Scissors' && context.config.cpuItem.name === 'Paper'){
@@ -128,12 +159,11 @@ function PlayerCPUSet() {
     },[context.config.confirm, context.config.pointsCPU, context.config.points1])
 
   return (
-    <div>
+    <div className=''>
         { !context.config.cpuItem && load === false &&
         <div className='flex justify-center '>
             <div className='flex flex-col'>
                 <Image className='transition duration:500ms animate-bounce' src={bot} width={200} alt='bot img' />
-                <span className='font-bold text-center mr-4 text-white'>CPU</span> 
             </div>
         </div>
         }

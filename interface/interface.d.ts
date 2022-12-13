@@ -3,7 +3,7 @@ import { StaticImageData } from "next/image"
 export type Config = {
         points1?: number,
         pointsCPU?:number,
-        playerName?: string,
+        playerName?: string | null, 
         player1Item?: string,
         cpuItem? : {
             name: string,

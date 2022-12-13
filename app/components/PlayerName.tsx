@@ -52,6 +52,7 @@ function ConfirmName ({realName, setRealName} : Props ) {
 
     useEffect(() => {
       if(name.length > 0) {
+        localStorage.setItem('name', context.config.playerName)
       router.push('/play')
       }
     },[name])
@@ -60,7 +61,7 @@ function ConfirmName ({realName, setRealName} : Props ) {
             <div className='flex justify-center w-full'>
               <div className='flex flex-col'>
                 <span className={`${styles['text-name']} mb-2 text-xl text-center font-medium`}>Write your name for to play!</span>
-              <input className={'border border-[#faea5a] w-full mb-3 text-2xl p-5 w-full focus:outline-none rounded-lg text-center'} onChange={handleChangeName} />
+              <input className={' bg-transparent  border-b-2  w-full mb-3 text-2xl p-1 w-full focus:outline-none  text-center'} onChange={handleChangeName} />
               <button className={`${styles['text-name']} bg-[#faea5a] text-xl transition duration:300ms hover:bg-[#5c5516] hover:text-white flex justify-center p-2 font-bold rounded-lg`} onClick={handleConfirmName}>Confirm your name!</button>
             </div>
             </div>

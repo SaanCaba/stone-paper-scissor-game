@@ -21,21 +21,19 @@ type Props = {
 function PlayerSet({items, setItems} : any  ) { 
     const [start, setStart] = useState(false)
   return (
-    <div className='relative h-full'>
-      <div className='flex items-center'>
+    <div className='w-full m-2' >
+      <div className='w-full h-full flex justify-center items-center' >
       {
       !start  ? (
-        <div className='flex items-center'>
+        <div className=''>
          <button className='text-[#E4a7b6] font-bold text-3xl transition duration:400ms hover:text-[#22221E] animate-pulse ' onClick={() => setStart(true)}>START!</button> 
          </div>
          )
          : ''
       }
-      </div>
-      <div className='h-full '>
       {
         start && (
-          <div>
+          <div className=''>
             <div className='flex justify-center'>
             <span className='text-white text-xl'>Choose One!</span>
             </div>
@@ -50,6 +48,24 @@ function PlayerSet({items, setItems} : any  ) {
         )
       }
       </div>
+      {/* <div className=' '>
+      {
+        start && (
+          <div className='bg-white'>
+            <div className='flex justify-center'>
+            <span className='text-white text-xl'>Choose One!</span>
+            </div>
+          <nav className='flex items-center h-full max-sm:flex-col'>
+          {items.map((e : Items, i : number ) => {
+            return (
+              <Item key={i} element={e} i={i}  />
+            )
+          })}
+          </nav>
+          </div>
+        )
+      }
+      </div> */}
     </div>
   )
 }

@@ -15,7 +15,7 @@ function PlayLayout({
         <div >
         <header>
             <div className='w-full flex justify-center mt-2 max-sm:-mb-6'>
-            <span className='text-2xl font-semibold select-none duration:200ms transition hover:scale-110 '>Let's play!  </span><span><RiRocket2Line color='black' className='mt-2 animate-pulse duration:300ms transition hover:rotate-45' size={25} /></span>
+            <span className='text-2xl font-semibold select-none'>Let's play!  </span><span><RiRocket2Line color='black' className='mt-2 animate-pulse duration:300ms transition hover:rotate-45' size={25} /></span>
             </div>
         </header>
        <main >{children}</main> 

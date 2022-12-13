@@ -5,4 +5,5 @@
 .itemli{
     list-style: none;
     pointer-events: none;
+    color: white;
 }
