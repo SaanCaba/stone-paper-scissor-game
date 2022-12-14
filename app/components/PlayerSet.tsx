@@ -1,6 +1,8 @@
 'use client'
 import React, { useContext, useEffect, useState } from 'react'
+import { ContextType } from '../../interface/interface'
 import Item from './Item'
+import Contexts from './PlayersContext'
 
 type Items = {
   name: string
@@ -20,7 +22,30 @@ type Props = {
   //quitar este any
 function PlayerSet({items, setItems} : any  ) { 
     const [start, setStart] = useState(false)
-  return (
+    const context : ContextType = useContext(Contexts.AppContext)
+    useEffect(() => {
+      if(context.config.playerName){
+      if(context.config.playerName.length === 0){
+        let name = localStorage.getItem('name')
+        let avatar= localStorage.getItem('avatar')
+        console.log(typeof avatar)
+        if(name !== null || name !== undefined){
+          context.setConfig({
+            ...context.config,
+            playerName: name,
+            avatar: avatar
+          })
+        }else{
+          context.setConfig({
+            ...context.config,
+            playerName: 'user'
+          })
+        }
+      }
+    }
+
+    }, [context.config.playerName])
+    return (
     <div className='w-full m-2' >
       <div className='w-full h-full flex justify-center items-center' >
       {

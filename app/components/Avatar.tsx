@@ -33,7 +33,10 @@ function Avatar() {
     const handleClick = async (img: StaticImageData) => {
         setSet(true)
         setRealImg(img)
-
+        context.setConfig({
+            ...context.config,
+            avatar: img
+        })
         console.log(context.config.avatar.src)
 
     }

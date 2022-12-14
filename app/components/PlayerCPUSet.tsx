@@ -13,7 +13,7 @@ import bot from '../assets/bot.png'
 import Swal, { SweetAlertCustomClass } from 'sweetalert2'
 
 
-function alert(conf : string, name? : string){
+function alert(conf : string, name? : string, img?: string){
     if(conf === 'wincpu'){
        return Swal.fire({
            title:'CPU Winner!',
@@ -32,8 +32,8 @@ function alert(conf : string, name? : string){
    if(conf === 'winp1'){
     return Swal.fire({
         title:`${name} wins!`,
-        text:'Keep trying!',
-        imageUrl:'https://www.freeiconspng.com/thumbs/spongebob-png/spongebob-happy-png-9.png',
+        text:'Congrats!',
+        imageUrl: img,
         imageWidth: 200,
         imageHeight: 200,
         background:'#AA2B4A',
@@ -59,10 +59,16 @@ function alert(conf : string, name? : string){
             text:`Points for ${name}`,
             icon:'success',
             color:'white',
-            imageUrl:'https://www.freeiconspng.com/thumbs/spongebob-png/spongebob-happy-png-9.png',
-            imageWidth: 200,
-            imageHeight: 200,
+            html: `<div style='display:flex; justify-content:center'>
+            <div style='display:flex; flex-direction:column'>
+            <img width='200' height='200' src=${img} />
+            <span style=font-weight: 'bold'>Points for ${name}</span>
+            </div>
+            </div>`,
+            confirmButtonColor:'#4dc46d',
+            confirmButtonText:'Ok',
             background:'#AA2B4A',
+            footer:'More close off the win'
         })
     }
     return Swal.fire({
@@ -113,7 +119,7 @@ function PlayerCPUSet() {
             return;
         }
         if(context.config.points1 === 3){
-            (async() => await alert('winp1', context.config.playerName))()
+            (async() => await alert('winp1', context.config.playerName, context.config.avatar.src || context.config.avatar))()
             return;
          }
         if(points === true){
@@ -123,7 +129,7 @@ function PlayerCPUSet() {
                return setPoints(false)
             }
             if(context.config.player1Item === 'Scissors' && context.config.cpuItem.name === 'Paper'){
-               (async()  => await alert('player1', context.config.playerName))()
+               (async()  => await alert('player1', context.config.playerName, context.config.avatar.src || context.config.avatar))()
                context.setConfig({
                 ...context.config,
                 points1: context.config.points1 + 1
@@ -132,7 +138,7 @@ function PlayerCPUSet() {
                return setPoints(false)
             }
             if(context.config.player1Item === 'Paper' && context.config.cpuItem.name === 'Stone'){
-                (async()  => await alert('player1', context.config.playerName))()
+                (async()  => await alert('player1', context.config.playerName, context.config.avatar.src || context.config.avatar))()
                 context.setConfig({
                     ...context.config,
                     points1: context.config.points1 + 1
@@ -141,7 +147,7 @@ function PlayerCPUSet() {
                 return setPoints(false)
             }
             if(context.config.player1Item === 'Stone' && context.config.cpuItem.name === 'Scissors'){
-                (async()  => await alert('player1', context.config.playerName))()
+                (async()  => await alert('player1', context.config.playerName, context.config.avatar.src || context.config.avatar))()
                 context.setConfig({
                     ...context.config,
                     points1: context.config.points1 + 1
