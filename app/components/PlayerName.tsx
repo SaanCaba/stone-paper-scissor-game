@@ -35,7 +35,7 @@ function ConfirmName ({realName, setRealName} : Props ) {
           icon:'error',
           background:'black',
           color:'white',
-          confirmButtonText:'green'
+          confirmButtonColor:'#4dc46d'
         })
       }
       if(context.config.playerName.length > 10 || context.config.playerName.length < 4){
@@ -44,7 +44,7 @@ function ConfirmName ({realName, setRealName} : Props ) {
            icon:'error',
            background:'black',
            color:'white',
-           confirmButtonColor:'green'
+           confirmButtonColor:'#4dc46d'
         })
          }
       setName(context.config.playerName)
