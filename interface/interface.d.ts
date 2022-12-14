@@ -9,7 +9,8 @@ export type Config = {
             name: string,
             img: StaticImageData
         },
-        confirm?:boolean
+        confirm?:boolean,
+        avatar: any
 }
 
 export type ContextType = {
@@ -26,7 +27,8 @@ export type ContextType = {
         playerPoints:{
             p1: number,
             cpu:number
-        }
+        },
+        avatar: any
       }
     setConfig: (val : Config ) => void  
 }

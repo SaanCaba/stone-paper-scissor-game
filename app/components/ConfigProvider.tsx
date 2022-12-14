@@ -17,7 +17,8 @@ function ConfigProvider({ children } : ScriptProps) {
           playerPoints: {
                 p1: 0,
                 cpu:0
-          }
+          },
+          avatar: ''
    });
     return (
     <Contexts.AppContext.Provider value={{config, setConfig}}>

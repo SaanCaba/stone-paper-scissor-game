@@ -53,7 +53,8 @@ function ConfirmName ({realName, setRealName} : Props ) {
     useEffect(() => {
       if(name.length > 0) {
         localStorage.setItem('name', context.config.playerName)
-      router.push('/play')
+        localStorage.setItem('avatar', context.config.avatar)
+        router.push('/avatar')
       }
     },[name])
 

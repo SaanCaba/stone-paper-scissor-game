@@ -42,10 +42,13 @@ function ContPlayers() {
     useEffect(() => {
       if(context.config.playerName.length === 0){
         let name = localStorage.getItem('name')
+        let avatar= localStorage.getItem('avatar')
+        console.log(typeof avatar)
         if(name !== null || name !== undefined){
           context.setConfig({
             ...context.config,
-            playerName: name
+            playerName: name,
+            avatar: avatar
           })
         }else{
           context.setConfig({
@@ -64,7 +67,9 @@ function ContPlayers() {
             <div className='rounded-t-lg w-full flex justify-center  bg-[#CB3459] p-3'>
               {
                 context.config.playerName.length === 0 ? <div className={styles.spin}></div> : (
-                  <span className='font-semibold text-3xl text-white p-2'>{context.config.playerName}</span>
+                  <div className='flex'>
+                <Image alt='user-img' width={50} height={50} src={context.config.avatar} />  <span className='font-semibold text-3xl text-white p-2'>{context.config.playerName}</span>
+                  </div>
                 )
               }
             </div>
