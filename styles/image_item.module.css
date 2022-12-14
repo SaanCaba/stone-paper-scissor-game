@@ -11,3 +11,12 @@
     object-fit: cover;
     margin-bottom: 30px;
 }
+
+@media (max-width:600px){
+    .images{
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        cursor: pointer;
+    }
+}

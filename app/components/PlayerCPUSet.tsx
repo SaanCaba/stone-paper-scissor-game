@@ -33,9 +33,12 @@ function alert(conf : string, name? : string, img?: string){
     return Swal.fire({
         title:`${name} wins!`,
         text:'Congrats!',
-        imageUrl: img,
-        imageWidth: 200,
-        imageHeight: 200,
+        html: `<div style='display:flex; justify-content:center'>
+        <div style='display:flex; flex-direction:column'>
+        <img width='230' height='230' src=${img} />
+        <span style=font-weight: 'bold'>Congrats ${name}!</span>
+        </div>
+        </div>`,
         background:'#AA2B4A',
         showConfirmButton: false,
         color:'white',
@@ -87,10 +90,12 @@ function alert(conf : string, name? : string, img?: string){
 function PlayerCPUSet() {
     const [load, setLoading] = useState(false)
     const [points, setPoints] = useState(false)
+    const [botB, setBotB] = useState(true)
     const context: ContextType = useContext(Context.AppContext)
     
     const selectRandomItem = async () => {
         setLoading(true)
+        setBotB(false)
         await setTimeout(() => {
               var items = [
                 {name: "Scissors", img: tijera},
@@ -116,10 +121,14 @@ function PlayerCPUSet() {
         }
         if(context.config.pointsCPU === 3){
             (async() => await alert('wincpu'))()
+            setLoading(false)
+            setBotB(true)
             return;
         }
         if(context.config.points1 === 3){
             (async() => await alert('winp1', context.config.playerName, context.config.avatar.src || context.config.avatar))()
+            setLoading(false)
+            setBotB(true)
             return;
          }
         if(points === true){
@@ -164,9 +173,10 @@ function PlayerCPUSet() {
         }
     },[context.config.confirm, context.config.pointsCPU, context.config.points1])
 
+
   return (
     <div className=''>
-        { !context.config.cpuItem && load === false &&
+        { botB &&
         <div className='flex justify-center '>
             <div className='flex flex-col'>
                 <Image className='transition duration:500ms animate-bounce' src={bot} width={200} alt='bot img' />
@@ -184,7 +194,7 @@ function PlayerCPUSet() {
             )
         }
         {
-            context.config.cpuItem && !load && (
+            context.config.cpuItem && !load && !botB && (
                 <div className='flex justify-center'>
                  <div className='flex flex-col'>
             <Image src={context.config.cpuItem.img} width={200} alt={context.config.cpuItem.name} />

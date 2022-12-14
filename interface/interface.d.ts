@@ -7,7 +7,7 @@ export type Config = {
         player1Item?: string,
         cpuItem? : {
             name: string,
-            img: StaticImageData
+            img: StaticImageData | string
         },
         confirm?:boolean,
         avatar: any
@@ -21,7 +21,7 @@ export type ContextType = {
         player1Item: string,
         cpuItem: {
             name: string,
-            img: StaticImageData
+            img: StaticImageData | string
         },
         confirm: boolean,
         playerPoints:{

@@ -37,8 +37,6 @@ function Avatar() {
             ...context.config,
             avatar: img
         })
-        console.log(context.config.avatar.src)
-
     }
 
     useEffect(() => {
@@ -48,12 +46,12 @@ function Avatar() {
     }, [context.config.avatar])
     
   return (
-    <div className='h-screen flex items-center justify-center'>
-        <div className="flex flex-col">
+    <div className='h-screen flex items-center justify-center  '>
+        <div className="flex flex-col  ">
             <div className='flex justify-center w-full'>
                 <span className='font-semibold mb-2 text-2xl text-underline'>Choose your avatar!</span>
             </div>
-        <div className='p-3 rounded backdrop-brightness-75 flex justify-center items-center'>
+        <div className='p-3 rounded backdrop-brightness-75 flex justify-center items-center max-sm:flex max-sm:flex-col'>
         {
             avatares.map((e, i:number) => {
                 return(

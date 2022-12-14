@@ -32,13 +32,13 @@ function Results() {
     </div>
     <div className='flex justify-center'>
       <div className='mr-1'>
-        <span className={`${roboto.className} text-[#AA2B4A] text-3xl`}>{context.config.points1}</span>
+        <span className={`${roboto.className} text-[#AA2B4A] max-sm:text-xl  text-3xl`}>{context.config.points1}</span>
       </div>
       <div >
-        <span className={`${roboto.className} text-3xl`}>VS</span> 
+        <span className={`${roboto.className} max-sm:text-xl text-3xl`}>VS</span> 
       </div>
       <div className='ml-1' >
-        <span className={`${roboto.className} text-[#071e26] text-3xl`}>{context.config.pointsCPU}</span>
+        <span className={`${roboto.className} max-sm:text-xl text-[#071e26] text-3xl`}>{context.config.pointsCPU}</span>
       </div>
     </div>
     </div>
